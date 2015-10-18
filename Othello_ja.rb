@@ -2,7 +2,6 @@
 
 require "pp"
 require "matrix"
-require "csv"
 
 class Player
   @learning_rate # 学習率(0,1]
@@ -521,7 +520,7 @@ class GameSimulator
     @game =  Othello_ja.new(board_size, player_strategy, opponent_strategy, is_log)
     @total_player_score   = 0
     @total_opponent_score = 0
-    @log_count            = 10 # ログの回数
+    @log_count            = 100 # ログの回数
     @max_player_score     = -Float::MAX
   end
 
@@ -547,4 +546,4 @@ end
 
 # シュミレーション
 sim = GameSimulator.new(4, "e-greedy", "random", false)
-sim.simulation(10000)
+sim.simulation(100000)
